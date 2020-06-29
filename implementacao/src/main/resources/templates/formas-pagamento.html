@@ -23,13 +23,13 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="/usuarios">Usuários</a>
 		      </li>
-		      <li class="nav-item active">
+		      <li class="nav-item">
 		        <a class="nav-link" href="/clientes">Clientes</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="/filiais">Filiais</a>
 		      </li>
-		      <li class="nav-item">
+		      <li class="nav-item active">
 		        <a class="nav-link" href="/formas-pagamento">Forma Pagamento</a>
 		      </li>
 		    </ul>
@@ -44,16 +44,16 @@
 		<div class="container" style="width: 60%; padding: 30px 0;">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+		    <li class="breadcrumb-item active" aria-current="page">Forma de Pagamento</li>
 		  </ol>
 		</nav>
-		<ul class="list-group list-group-flush" th:each="cliente: ${clientes}">
+		<ul class="list-group list-group-flush" th:each="formaPagamento: ${formasPagamento}">
 		  <li class="list-group-item">
-		  	<span th:text="${cliente.id}"></span> - 
-		  	<span th:text="${cliente.nome}"></span>
+		  	<span th:text="${formaPagamento.id}"></span> - 
+		  	<span th:text="${formaPagamento.nome}"></span>
 		  </li>
 		</ul>
-		<a href="/novo-cliente" class="btn btn-primary" role="button">Novo Cliente</a>
+		<a href="/nova-forma-pagamento" class="btn btn-primary" role="button">Nova Forma Pagamento</a>
 		
 		</div>	
 	</section>

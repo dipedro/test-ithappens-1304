@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org">
+<head>
+	<title>Desafio It Happens - Pedro Azevedo</title>
+	<meta charset="utf-8"/>
+	<!-- CSS Bootstrap v4.5 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd !important;">
+		<img src="https://images.gupy.io/unsafe/85x85/https://s3.amazonaws.com/gupy5/production/companies/502/career/804/images/logo.png" width="85" height="85" class="d-inline-block align-top" alt="" loading="lazy">
+		  <a class="navbar-brand" style="margin-left: 5px;">It Happens</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Usuários</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Clientes</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Filiais</a>
+		      </li>
+		    </ul>
+		    <span class="navbar-text">
+		        Desafio It Happens - Pedro Azevedo
+			</span>
+		  </div>
+		</nav>
+	</header>
+
+	<section>
+		<div class="container" style="width: 60%; padding: 30px 0;">
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+		    <li class="breadcrumb-item active" aria-current="page">Usuários</li>
+		  </ol>
+		</nav>
+		<ul class="list-group list-group-flush" th:each="usuario: ${usuarios}">
+		  <li class="list-group-item">
+		  	<span th:text="${usuario.id}"></span> - 
+		  	<span th:text="${usuario.nome}"></span> -
+		  	<span th:text="${usuario.cpf}"></span>
+		  </li>
+		</ul>
+		<a href="/novo-usuario" class="btn btn-primary" role="button">Novo Usuário</a>
+		
+		</div>	
+	</section>
+
+</body>
+</html>

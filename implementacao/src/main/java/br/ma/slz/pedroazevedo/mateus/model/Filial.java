@@ -12,12 +12,12 @@ import javax.persistence.Table;
 public class Filial {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false)
 	private String nome;
-
+	
 	public Long getId() {
 		return id;
 	}

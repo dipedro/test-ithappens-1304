@@ -39,20 +39,25 @@
 
 	<section>
 		<div class="container" style="width: 60%; padding: 30px 0;">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Usuários</li>
-		  </ol>
-		</nav>
-		<ul class="list-group list-group-flush" th:each="usuario: ${usuarios}">
-		  <li class="list-group-item">
-		  	<span th:text="${usuario.id}"></span> - 
-		  	<span th:text="${usuario.nome}"></span> -
-		  	<span th:text="${usuario.cpf}"></span>
-		  </li>
-		</ul>
-		<a href="/novo-usuario" class="btn btn-primary" role="button">Novo Usuário</a>
-		
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item" aria-current="page"><a href="/clientes">Clientes</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Novo Cliente</li>
+			  </ol>
+			</nav>
+
+			<div>
+			<th:block th:include="mensagemValidacao"></th:block>
+				<form method="post">
+					<div class="form-group">
+						<input type="text" class="form-control" name="nome" placeholder="Nome *">
+					</div>
+					<small class="form-text text-muted">(*) Campo obrigatório</small>
+					
+					<button type="submit" class="btn btn-primary" style="margin-top: 10px;">Cadastrar</button>
+					<a href="/clientes" class="btn btn-light" style="margin-top: 10px;" role="button">Cancelar</a>
+				</form>
+			</div>
 		</div>	
 	</section>
 

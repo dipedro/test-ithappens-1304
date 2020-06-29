@@ -20,10 +20,10 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
 		      </li>
-		      <li class="nav-item active">
+		      <li class="nav-item">
 		        <a class="nav-link" href="/usuarios">Usuários</a>
 		      </li>
-		      <li class="nav-item">
+		      <li class="nav-item active">
 		        <a class="nav-link" href="/clientes">Clientes</a>
 		      </li>
 		      <li class="nav-item">
@@ -41,17 +41,16 @@
 		<div class="container" style="width: 60%; padding: 30px 0;">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Usuários</li>
+		    <li class="breadcrumb-item active" aria-current="page">Clientes</li>
 		  </ol>
 		</nav>
-		<ul class="list-group list-group-flush" th:each="usuario: ${usuarios}">
+		<ul class="list-group list-group-flush" th:each="cliente: ${clientes}">
 		  <li class="list-group-item">
-		  	<span th:text="${usuario.id}"></span> - 
-		  	<span th:text="${usuario.nome}"></span> -
-		  	<span th:text="${usuario.cpf}"></span>
+		  	<span th:text="${cliente.id}"></span> - 
+		  	<span th:text="${cliente.nome}"></span>
 		  </li>
 		</ul>
-		<a href="/novo-usuario" class="btn btn-primary" role="button">Novo Usuário</a>
+		<a href="/novo-cliente" class="btn btn-primary" role="button">Novo Cliente</a>
 		
 		</div>	
 	</section>

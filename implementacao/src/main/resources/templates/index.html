@@ -13,19 +13,7 @@
 
 	<section>
 		<div class="container" style="width: 60%; padding: 30px 0;">
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Usuários</li>
-		  </ol>
-		</nav>
-		<ul class="list-group list-group-flush" th:each="usuario: ${usuarios}">
-		  <li class="list-group-item">
-		  	<span th:text="${usuario.id}"></span> - 
-		  	<span th:text="${usuario.nome}"></span> -
-		  	<span th:text="${usuario.cpf}"></span>
-		  </li>
-		</ul>
-		<a href="/novo-usuario" class="btn btn-primary" role="button">Novo Usuário</a>
+		<h1>Bem vindo(a)!</h1>
 		
 		</div>	
 	</section>

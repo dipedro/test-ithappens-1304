@@ -5,40 +5,11 @@
 	<meta charset="utf-8"/>
 	<!-- CSS Bootstrap v4.5 -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd !important;">
-		<img src="https://images.gupy.io/unsafe/85x85/https://s3.amazonaws.com/gupy5/production/companies/502/career/804/images/logo.png" width="85" height="85" class="d-inline-block align-top" alt="" loading="lazy">
-		  <a class="navbar-brand" style="margin-left: 5px;">It Happens</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNav">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Início <span class="sr-only">(current)</span></a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/usuarios">Usuários</a>
-		      </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="/clientes">Clientes</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/filiais">Filiais</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/formas-pagamento">Forma Pagamento</a>
-		      </li>
-		    </ul>
-		    <span class="navbar-text">
-		        Desafio It Happens - Pedro Azevedo
-			</span>
-		  </div>
-		</nav>
-	</header>
+	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 
 	<section>
 		<div class="container" style="width: 60%; padding: 30px 0;">
@@ -57,6 +28,8 @@
 		
 		</div>	
 	</section>
+	
+	<div th:replace="fragmentos/fragmentos :: rodape"></div>
 
 </body>
 </html>

@@ -12,7 +12,7 @@
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 
 	<section>
-		<div class="container" style="width: 60%; padding: 30px 0;">
+		<div class="container" style="width: 90%; padding: 30px 0;">
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 		    <li class="breadcrumb-item active" aria-current="page">Detalhe Pedido</li>
@@ -42,51 +42,100 @@
 		</table>
 	
 		<hr>
-		<nav aria-label="breadcrumb">
-		  <ol class="breadcrumb">
-		    <li class="breadcrumb-item active" aria-current="page">Buscar Produto</li>
-		  </ol>
-		</nav>
-		<form method="get" th:action="@{/buscarProduto}">
-			<div class="row">
-			    <div class="col">
-			      <input type="text" class="form-control" name="codigo" placeholder="Código do Produto">
-			    </div>
-			    <div class="col">
-			      <input type="text" class="form-control" name="descricao" placeholder="Descrição do Produto">
-			    </div>
-			    <div class="col">
-			      <input type="text" class="form-control" name="codigo_barras" placeholder="Código de Barras do Produto">
-			    </div>
-			    <div class="col">
-			      <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Buscar Produto</button>
-			    </div>
-			  </div>
-		</form>
-		<hr>
+		<div th:if="${not #strings.startsWith(pedidoEstoque.tipo, 'ENTRADA')}">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item active" aria-current="page">Buscar Produto</li>
+			  </ol>
+			</nav>
+			<form method="get" th:action="@{/buscarProduto}">
+				<div class="row">
+				    <div class="col">
+				      <input type="text" class="form-control" name="codigo" placeholder="Código do Produto">
+				    </div>
+				    <div class="col">
+				      <input type="text" class="form-control" name="descricao" placeholder="Descrição do Produto">
+				    </div>
+				    <div class="col">
+				      <input type="text" class="form-control" name="codigo_barras" placeholder="Código de Barras do Produto">
+				    </div>
+				    <div class="col">
+				      <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Buscar Produto</button>
+				    </div>
+				  </div>
+			</form>
+			<hr>
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">Código</th>
+			      <th scope="col">Descrição</th>
+			      <th scope="col">Código de Barras</th>
+			      <th scope="col">Valor Unitário</th>
+			      <th scope="col">Qtd</th>
+			      <th scope="col">Ação</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Arroz Tio Jorge</td>
+			      <td>00123456</td>
+			      <td>R$ 5,00</td>
+			      <td><input type="text" class="form-control" name="quantidade"></td>
+			      <td><button type="button" class="btn btn-primary" style="margin-top: 10px;">Adicionar</button></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
 		
-		<table class="table table-hover">
-		  <thead>
-		    <tr>
-		      <th scope="col">Código</th>
-		      <th scope="col">Descrição</th>
-		      <th scope="col">Código de Barras</th>
-		      <th scope="col">Valor Unitário</th>
-		      <th scope="col">Qtd</th>
-		      <th scope="col">Ação</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <th scope="row">1</th>
-		      <td>Arroz Tio Jorge</td>
-		      <td>00123456</td>
-		      <td>R$ 5,00</td>
-		      <td><input type="text" class="form-control" name="quantidade"></td>
-		      <td><button type="button" class="btn btn-primary" style="margin-top: 10px;">Adicionar</button></td>
-		    </tr>
-		  </tbody>
-		</table>
+		<div th:if="${not #strings.startsWith(pedidoEstoque.tipo, 'SAIDA')}">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item active" aria-current="page">Adicionar Produto</li>
+			  </ol>
+			</nav>
+			<form method="post" th:action="@{/adicionarProduto/{filial_id}(filial_id=${pedidoEstoque.cliente.id})}">
+				<div class="row">
+				    <div class="col">
+				      <input type="text" class="form-control" th:field="${produto.descricao}" name="descricao" placeholder="Descrição do Produto">
+				    </div>
+				    <div class="col">
+				      <input type="text" class="form-control" th:field="${produto.codigo_de_barras}" name="codigo_barras" placeholder="Código de Barras">
+				    </div>
+				    <div class="col">
+				      <input type="number" class="form-control" th:field="${produto.valor}" name="valor" placeholder="Valor Unitário">
+				    </div>
+				    <div class="col">
+				      <input type="number" class="form-control" th:field="${estoque.quantidade}" name="quantidade" placeholder="Quantidade">
+				    </div>
+				    <div class="col">
+				      <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Adicionar Produto</button>
+				    </div>
+				  </div>
+			</form>
+			<hr>
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col">Descrição</th>
+			      <th scope="col">Código de Barras</th>
+			      <th scope="col">Valor Unitário</th>
+			      <th scope="col">Qtd</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="produto : ${produtos}">
+			      <td><span th:text="${produto.descricao}"></span></td>
+			      <td><span th:text="${produto.codigo_barras}"></span></td>
+			      <td><span th:text="${produto.valor}"></span></td>
+			      <td><span th:text="${produto.quantidade}"></span></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		
+		
 		<a href="/nova-filial" class="btn btn-primary" role="button">Finalizar Pedido</a>
 		
 		</div>	

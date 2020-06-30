@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.ma.slz.pedroazevedo.mateus.model.Cliente;
+import br.ma.slz.pedroazevedo.mateus.model.Estoque;
 import br.ma.slz.pedroazevedo.mateus.model.Filial;
 import br.ma.slz.pedroazevedo.mateus.model.PedidoEstoque;
+import br.ma.slz.pedroazevedo.mateus.model.Produto;
 import br.ma.slz.pedroazevedo.mateus.model.Usuario;
 import br.ma.slz.pedroazevedo.mateus.service.ClienteService;
 import br.ma.slz.pedroazevedo.mateus.service.FilialService;
@@ -58,13 +60,14 @@ public class PedidoEstoqueController {
 	}
 	
 	@RequestMapping(value = "/detalhePedido/{id}", method = RequestMethod.GET)
-	public ModelAndView detalhePedidoForm(@PathVariable("id") long id) {
+	public ModelAndView detalhePedidoForm(@PathVariable("id") Long id) {
 		ModelAndView mv = new ModelAndView("detalhePedido");
 		
 		PedidoEstoque pedidoEstoque = pedidoEstoqueService.findById(id);
 		
 		mv.addObject("pedidoEstoque", pedidoEstoque);
-		
+		mv.addObject("produto", new Produto());
+		mv.addObject("estoque", new Estoque());
 		return mv;
 	}
 }

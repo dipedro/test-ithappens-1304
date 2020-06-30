@@ -1,9 +1,11 @@
 package br.ma.slz.pedroazevedo.mateus.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,15 +29,11 @@ public class ItemPedido {
 	@Enumerated(EnumType.STRING)
 	private eStatusItemPedido status;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "produto_id", nullable = false)
 	private Produto produto;
 	
-	@ManyToOne
-	@JoinColumn(name = "forma_pagamento_id", nullable = false)
-	private FormaPagamento formaPagamento;
-	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name = "pedido_estoque_id", nullable = false)
 	private PedidoEstoque pedidoEstoque;
 
@@ -69,14 +67,6 @@ public class ItemPedido {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
-	}
-
-	public FormaPagamento getFormaPagamento() {
-		return formaPagamento;
-	}
-
-	public void setFormaPagamento(FormaPagamento formaPagamento) {
-		this.formaPagamento = formaPagamento;
 	}
 
 	public PedidoEstoque getPedidoEstoque() {

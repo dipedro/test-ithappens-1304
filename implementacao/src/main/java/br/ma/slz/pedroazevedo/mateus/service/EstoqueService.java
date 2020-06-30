@@ -7,5 +7,5 @@ import br.ma.slz.pedroazevedo.mateus.model.Estoque;
 public interface EstoqueService {
 	List<Estoque> findAll();
 	Estoque findById(long id);
-	Estoque save(Estoque sstoque);
+	Estoque save(Estoque estoque);
 }

@@ -17,14 +17,14 @@ public class Estoque {
 	private Long id;
 	
 	@Column(nullable = false)
-	private String quantidade;
+	private int quantidade;
 	
 	@ManyToOne
-	@JoinColumn(name = "filial_id")
+	@JoinColumn(name = "filial_id", nullable = false)
 	private Filial filial;
 	
 	@ManyToOne
-	@JoinColumn(name = "produto_id")
+	@JoinColumn(name = "produto_id", nullable = false)
 	private Produto produto;
 	
 	public Long getId() {
@@ -35,11 +35,11 @@ public class Estoque {
 		this.id = id;
 	}
 
-	public String getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(String quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 

@@ -8,4 +8,5 @@ public interface ItemPedidoService {
 	List<ItemPedido> findAll();
 	ItemPedido findById(long id);
 	ItemPedido save(ItemPedido itemPedido);
+	//List<ItemPedido> saveItemPedidos(List<ItemPedido> itensPedido);
 }

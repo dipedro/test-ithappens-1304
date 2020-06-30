@@ -23,13 +23,13 @@ public class ClienteFicticio {
 		List<Cliente> listaClientes = new ArrayList<>();
 		
 		Cliente cliente1 = new Cliente();
-		cliente1.setNome("Cliente 1");
+		cliente1.setNome("Brenda Emmylly");
 		
 		Cliente cliente2 = new Cliente();
-		cliente2.setNome("Cliente 2");
+		cliente2.setNome("Pedro Azevedo");
 		
 		Cliente cliente3 = new Cliente();
-		cliente2.setNome("Cliente 3");
+		cliente3.setNome("Julliana RH");
 		
 		
 		listaClientes.add(cliente1);

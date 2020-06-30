@@ -86,5 +86,14 @@ public class PedidoEstoque {
 	public void setFilial(Filial filial) {
 		this.filial = filial;
 	}
+	
+	@Override
+	public String toString() {
+		return  "ID: " + id + "\n" +
+				"Observacao: " + observacao + "\n" +
+				"Usuario: " + usuario.getNome() + "\n" + 
+				"Cliente: " + cliente.getNome() + "\n" +
+				"Filial: " + filial.getNome();
+	}
 
 }

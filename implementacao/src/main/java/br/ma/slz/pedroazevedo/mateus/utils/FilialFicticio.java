@@ -23,13 +23,13 @@ public class FilialFicticio {
 		List<Filial> listaFiliais = new ArrayList<>();
 		
 		Filial filial1 = new Filial();
-		filial1.setNome("Filial 1");
+		filial1.setNome("Mateus Cohama");
 		
 		Filial filial2 = new Filial();
-		filial2.setNome("Filial 2");
+		filial2.setNome("Mateus Cohab");
 		
 		Filial filial3 = new Filial();
-		filial3.setNome("Filial 3");
+		filial3.setNome("Mateus Renascença");
 		
 		
 		listaFiliais.add(filial1);

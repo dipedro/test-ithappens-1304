@@ -26,10 +26,10 @@ public class FormaPagamentoFicticio {
 		forma1.setNome("A VISTA");
 		
 		FormaPagamento forma2 = new FormaPagamento();
-		forma2.setNome("DEBITO");
+		forma2.setNome("BOLETO");
 		
 		FormaPagamento forma3 = new FormaPagamento();
-		forma3.setNome("CREDITO");
+		forma3.setNome("CARTAO");
 		
 		
 		listaFormasPagamento.add(forma1);

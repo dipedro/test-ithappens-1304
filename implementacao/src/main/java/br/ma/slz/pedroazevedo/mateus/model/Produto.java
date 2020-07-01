@@ -22,8 +22,8 @@ public class Produto {
 	@Column(nullable = false)
 	private String descricao;
 	
-	@Column(unique = true, nullable = false)
-	private String codigo_de_barras;
+	@Column(name="codigo_de_barras", unique = true, nullable = false)
+	private String codigoDeBarras;
 	
 	@DecimalMin(value = "0,00")
 	@NumberFormat(pattern = "#.##0,00") // Formato Brasileiro
@@ -32,6 +32,14 @@ public class Produto {
 
 	public Long getId() {
 		return id;
+	}
+
+	public String getCodigoDeBarras() {
+		return codigoDeBarras;
+	}
+
+	public void setCodigoDeBarras(String codigoDeBarras) {
+		this.codigoDeBarras = codigoDeBarras;
 	}
 
 	public void setId(Long id) {
@@ -44,14 +52,6 @@ public class Produto {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public String getCodigo_de_barras() {
-		return codigo_de_barras;
-	}
-
-	public void setCodigo_de_barras(String codigo_de_barras) {
-		this.codigo_de_barras = codigo_de_barras;
 	}
 
 	public BigDecimal getValor() {

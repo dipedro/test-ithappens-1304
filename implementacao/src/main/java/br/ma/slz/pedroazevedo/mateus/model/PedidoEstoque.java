@@ -1,5 +1,7 @@
 package br.ma.slz.pedroazevedo.mateus.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +19,12 @@ import br.ma.slz.pedroazevedo.mateus.enums.eTipoPedido;
 
 @Entity
 @Table(name = "pedidos_estoque")
-public class PedidoEstoque {
+public class PedidoEstoque implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

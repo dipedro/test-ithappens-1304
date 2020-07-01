@@ -21,7 +21,7 @@
 		<table class="table table-hover">
 		  <thead>
 		    <tr>
-		      <th scope="col">Código</th>
+
 		      <th scope="col">Tipo Pedido</th>
 		      <th scope="col">Usuário</th>
 		      <th scope="col">Cliente</th>
@@ -31,7 +31,6 @@
 		  </thead>
 		  <tbody>
 		    <tr>
-		      <th scope="row"><span th:text="${pedidoEstoque.id}"></span></th>
 		      <td><span th:text="${pedidoEstoque.tipo}"></span></td>
 		      <td><span th:text="${pedidoEstoque.usuario.nome}"></span></td>
 		      <td><span th:text="${pedidoEstoque.cliente.nome}"></span></td>
@@ -95,16 +94,17 @@
 			    <li class="breadcrumb-item active" aria-current="page">Adicionar Produto</li>
 			  </ol>
 			</nav>
-			<form method="post" th:action="@{/adicionarProduto/{filial_id}(filial_id=${pedidoEstoque.cliente.id})}">
+			<!-- >form method="post" th:action="@{/adicionarProduto/{filial_id}(filial_id=${pedidoEstoque.filial.id})}" -->
+			<form method="post" th:action="@{/adicionarProduto}" th:object="${estoque}">
 				<div class="row">
 				    <div class="col">
-				      <input type="text" class="form-control" th:field="${produto.descricao}" name="descricao" placeholder="Descrição do Produto">
+				      <input type="text" class="form-control" th:field="${estoque.produto.descricao}" name="descricao" placeholder="Descrição do Produto">
 				    </div>
 				    <div class="col">
-				      <input type="text" class="form-control" th:field="${produto.codigo_de_barras}" name="codigo_barras" placeholder="Código de Barras">
+				      <input type="text" class="form-control" th:field="${estoque.produto.codigoDeBarras}" name="codigo_barras" placeholder="Código de Barras">
 				    </div>
 				    <div class="col">
-				      <input type="number" class="form-control" th:field="${produto.valor}" name="valor" placeholder="Valor Unitário">
+				      <input type="number" class="form-control" th:field="${estoque.produto.valor}" name="valor" placeholder="Valor Unitário">
 				    </div>
 				    <div class="col">
 				      <input type="number" class="form-control" th:field="${estoque.quantidade}" name="quantidade" placeholder="Quantidade">
@@ -125,11 +125,11 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr th:each="produto : ${produtos}">
-			      <td><span th:text="${produto.descricao}"></span></td>
-			      <td><span th:text="${produto.codigo_barras}"></span></td>
-			      <td><span th:text="${produto.valor}"></span></td>
-			      <td><span th:text="${produto.quantidade}"></span></td>
+			    <tr th:each="itemProduto : ${listaEstoque}">
+			      <td><span th:text="${itemProduto.produto.descricao}"></span></td>
+			      <td><span th:text="${itemProduto.produto.codigoDeBarras}"></span></td>
+			      <td><span th:text="${itemProduto.produto.valor}"></span></td>
+			      <td><span th:text="${itemProduto.quantidade}"></span></td>
 			    </tr>
 			  </tbody>
 			</table>

@@ -1,5 +1,7 @@
 package br.ma.slz.pedroazevedo.mateus.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,10 +36,10 @@ public class ItemPedidoController {
 	FilialService filialService;
 	
 	@RequestMapping(value="/adicionarProduto/{filial_id}", method = RequestMethod.POST)
-	public String adicionarProdutoEstoque(Produto produto, @PathVariable("filial_id") Long filial_id, Estoque estoque) {
+	public String adicionarProdutoEstoque(Produto produto, @PathVariable("filial_id") Long filial_id, Estoque estoque, List<Produto> produtos) {
 		/**System.out.println(filial_id);
 		System.out.println(produto.getDescricao());
-		System.out.println(estoque.getQuantidade());**/
+		System.out.println(estoque.getQuantidade());
 		Produto produtoSalvo = produtoService.save(produto);
 		
 		Filial filial = new Filial();
@@ -46,7 +48,7 @@ public class ItemPedidoController {
 		estoque.setProduto(produtoSalvo);
 		estoque.setFilial(filial);
 		
-		estoqueService.save(estoque);
+		estoqueService.save(estoque);**/
 
 		return "redirect:/detalhePedido/" + 4;
 	}

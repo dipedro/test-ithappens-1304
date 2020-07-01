@@ -27,27 +27,27 @@
 					  </div>
 					<div class="form-group">
 					    <label for="exampleFormControlSelect1">Cliente *</label>
-					    <select class="form-control" id="selectCliente" th:field="*{cliente.id}">
+					    <select class="form-control" th:field="*{cliente.id}">
 						  <option value="" selected="selected">Selecione o cliente</option>
 					      <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
 					    </select>
 					  </div>
 					<div class="form-group">
-					    <label for="exampleFormControlSelect1">Usuário *</label>
-					    <select class="form-control" id="selectUsuario" th:field="*{usuario.id}">
+					    <label for="exampleFormControlSelect2">Usuário *</label>
+					    <select class="form-control" th:field="*{usuario.id}">
 					      <option value="" selected="selected">Selecione o usuário</option>
 					      <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.nome}"></option>
 					    </select>
 					  </div>
 					  <div class="form-group">
-					    <label for="exampleFormControlSelect1">Filial *</label>
+					    <label for="exampleFormControlSelect3">Filial *</label>
 					    <select class="form-control" id="selectFilial" th:field="*{filial.id}">
 					      <option value="" selected="selected">Selecione a filial</option>
 					      <option th:each="filial : ${filiais}" th:value="${filial.id}" th:text="${filial.nome}"></option>
 					    </select>
 					  </div>
 					 <div class="form-group">
-					 	<label for="exampleFormControlSelect1">Observação *</label>
+					 	<label for="exampleFormControlSelect4">Observação *</label>
 						<textarea class="form-control" th:field="*{observacao}" name="observacao" placeholder="Digite a observação do pedido"></textarea>
 					</div>
 					<small class="form-text text-muted">(*) Campos obrigatórios</small>

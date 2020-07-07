@@ -12,8 +12,8 @@ deveria ter utilizado o Angular (que é minha especialidade) no front-end.</p>
 
 ## 1. Como executar:
 ```
-$ git clone [https://github.com/mkyong/spring-boot.git](https://github.com/mkyong/spring-boot.git)
-$ cd web-thymeleaf
+$ git clone [https://github.com/dipedro/test-ithappens-1304](https://github.com/dipedro/test-ithappens-1304.git)
+$ cd implemntacao
 $ mvn spring-boot:run
 
 ```
